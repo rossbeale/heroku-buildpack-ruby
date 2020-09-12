@@ -13,6 +13,10 @@ class LanguagePack::Rails51 < LanguagePack::Rails5
     node_modules
     tmp/cache/webpacker
   ]
+  
+  ASSET_CLEANUP_PATHS = %w[
+    node_modules
+  ]
 
   # @return [Boolean] true if it's a Rails 5.1.x app
   def self.use?
@@ -86,7 +90,7 @@ class LanguagePack::Rails51 < LanguagePack::Rails5
 
       FileUtils.remove_dir(default_assets_cache) if Dir.exist?(default_assets_cache)
 
-      self.class::ASSET_CACHE_PATHS.each do |path|
+      self.class::ASSET_CLEANUP_PATHS.each do |path|
         FileUtils.remove_dir(path) if Dir.exist?(path)
       end
     end
