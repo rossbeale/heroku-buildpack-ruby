@@ -16,6 +16,11 @@ class LanguagePack::Rails51 < LanguagePack::Rails5
   
   ASSET_CLEANUP_PATHS = %w[
     tmp/cache/webpacker
+    node_modules/.cache
+    node_modules/@fortawesome
+    node_modules/@babel
+    node_modules/typescript
+    node_modules/foundation-sites
   ]
 
   # @return [Boolean] true if it's a Rails 5.1.x app
